@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dulce Encanto - Pastelería Artesanal</title>
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- Google Fonts: Playfair Display + Plus Jakarta Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background-color: #FAF6F0;
+    }
+    .font-serif-custom {
+      font-family: 'Playfair Display', serif;
+    }
+    .soft-shadow {
+      box-shadow: 0 10px 30px -5px rgba(229, 178, 178, 0.15);
+    }
+  </style>
+</head>
+<body class="text-gray-700 min-h-screen flex flex-col antialiased">
+
+  <!-- Navegación Encabezado -->
+  <nav class="bg-white/80 backdrop-blur-md border-b border-pink-100 sticky top-0 z-50 p-4">
+    <div class="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4">
+      <div class="flex items-center gap-3 cursor-pointer" onclick="cambiarVista('inicio')">
+        <span class="text-3xl p-2 bg-pink-50 rounded-2xl border border-pink-100 shadow-sm">🧁</span>
+        <div>
+          <h1 class="text-2xl font-serif-custom font-bold text-pink-900 tracking-tight">Dulce Encanto</h1>
+          <p class="text-xs text-pink-400 font-medium tracking-widest uppercase">Pastelería & Repostería</p>
+        </div>
+      </div>
+      
+      <!-- Menú de Vistas Completo -->
+      <div class="flex flex-wrap justify-center gap-1 bg-pink-50/70 p-1.5 rounded-2xl border border-pink-100/80">
+        <button onclick="cambiarVista('inicio')" id="tab-inicio" class="px-3 py-1.5 rounded-xl text-xs sm:text-sm font-semibold transition-all duration-200 bg-white text-pink-950 shadow-sm border border-pink-100">
+           Inicio
+        </button>
+        <button onclick="cambiarVista('menu')" id="tab-menu" class="px-3 py-1.5 rounded-xl text-xs sm:text-sm font-semibold transition-all duration-200 text-gray-500 hover:text-pink-800">
+           Menú
+        </button>
+        <button onclick="cambiarVista('pedido')" id="tab-pedido" class="px-3 py-1.5 rounded-xl text-xs sm:text-sm font-semibold transition-all duration-200 text-gray-500 hover:text-pink-800">
+           Pedidos
+        </button>
+        <button onclick="cambiarVista('usuario')" id="tab-usuario" class="px-3 py-1.5 rounded-xl text-xs sm:text-sm font-semibold transition-all duration-200 text-gray-500 hover:text-pink-800">
+           Mi Cuenta
+        </button>
+        <button onclick="cambiarVista('inventario')" id="tab-inventario" class="px-3 py-1.5 rounded-xl text-xs sm:text-sm font-semibold transition-all duration-200 text-gray-500 hover:text-pink-800">
+           Inventario
+        </button>
+        <button onclick="cambiarVista('contabilidad')" id="tab-contabilidad" class="px-3 py-1.5 rounded-xl text-xs sm:text-sm font-semibold transition-all duration-200 text-gray-500 hover:text-pink-800">
+           Contabilidad
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Contenedor Principal -->
+  <main class="max-w-5xl mx-auto p-6 flex-grow w-full space-y-8">
+
+    <!-- 1. VISTA INICIO / LANDING PAGE -->
+    <section id="modulo-inicio" class="space-y-8">
+      <div class="bg-gradient-to-r from-pink-100/80 via-purple-50 to-pink-50 p-10 rounded-3xl border border-pink-100 soft-shadow text-center space-y-4">
+        <span class="bg-white/80 text-pink-800 text-xs px-4 py-1.5 rounded-full font-bold border border-pink-200 uppercase tracking-widest">
+          Sabor Artesanal & Calidad
+        </span>
+        <h2 class="text-4xl sm:text-5xl font-serif-custom font-bold text-pink-950 leading-tight">
+          Momentos Dulces, Creados con Amor
+        </h2>
+        <p class="text-gray-600 max-w-xl mx-auto text-sm sm:text-base">
+          Explora nuestra selección exclusiva de postres cucharables y agenda cotizaciones para eventos especiales y mesas dulces.
+        </p>
+        <div class="pt-2 flex justify-center gap-4">
+          <button onclick="cambiarVista('menu')" class="bg-pink-300 hover:bg-pink-400 text-pink-950 font-bold px-6 py-3 rounded-2xl transition shadow-sm">
+            Ver Menú de Productos 
+          </button>
+          <button onclick="cambiarVista('pedido')" class="bg-white hover:bg-pink-50 text-pink-900 font-bold px-6 py-3 rounded-2xl transition border border-pink-200">
+            Hacer un Pedido 🛒
+          </button>
+        </div>
+      </div>
+
+      <!-- Destacados -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div class="bg-white p-6 rounded-3xl border border-pink-100/80 soft-shadow text-center space-y-2">
+          <h3 class="font-bold text-gray-800">Postres Cucharables</h3>
+          <p class="text-xs text-gray-500">Presentaciones individuales listos para entrega inmediata.</p>
+        </div>
+        <div class="bg-white p-6 rounded-3xl border border-pink-100/80 soft-shadow text-center space-y-2">
+          <h3 class="font-bold text-gray-800">Tortas Personalizadas</h3>
+          <p class="text-xs text-gray-500">Elaboradas según recetas y número de porciones solicitadas.</p>
+        </div>
+        <div class="bg-white p-6 rounded-3xl border border-pink-100/80 soft-shadow text-center space-y-2">
+          <h3 class="font-bold text-gray-800">Mesas Dulces</h3>
+          <p class="text-xs text-gray-500">Cotización integral para bodas, cumpleaños y eventos corporativos.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 2. VISTA MENÚ / CATÁLOGO -->
+    <section id="modulo-menu" class="hidden space-y-6">
+      <header class="border-b border-pink-200/60 pb-3">
+        <h2 class="text-3xl font-serif-custom font-bold text-pink-950">Catálogo de Productos</h2>
+        <p class="text-sm text-pink-600/80 mt-1">Selecciona los productos y pasa al módulo de pedidos.</p>
+      </header>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <!-- Producto 1 -->
+        <div class="bg-white p-6 rounded-3xl border border-pink-100/80 soft-shadow flex flex-col justify-between space-y-4">
+          <div class="space-y-2">
+            <span class="bg-pink-100 text-pink-800 text-xs px-3 py-1 rounded-full font-semibold">Producto Terminado</span>
+            <h3 class="text-xl font-bold text-pink-900">Postre Cucharable de Chocolate</h3>
+            <p class="text-xs text-gray-500">Delicioso postre individual capas de bizcocho cremoso y cobertura suave de chocolate.</p>
+            <p class="text-lg font-bold text-pink-950">$12,000 COP</p>
+          </div>
+          <button onclick="seleccionarProducto('prod-1')" class="w-full bg-pink-100 hover:bg-pink-200 text-pink-900 font-bold py-2.5 rounded-xl transition text-sm">
+            Ordenar Este Producto 🛒
+          </button>
+        </div>
+
+        <!-- Producto 2 -->
+        <div class="bg-white p-6 rounded-3xl border border-pink-100/80 soft-shadow flex flex-col justify-between space-y-4">
+          <div class="space-y-2">
+            <span class="bg-purple-100 text-purple-800 text-xs px-3 py-1 rounded-full font-semibold">Elaborado por Receta</span>
+            <h3 class="text-xl font-bold text-purple-900">Torta Personalizada (15 Porciones)</h3>
+            <p class="text-xs text-gray-500">Torta decorada a mano. Consume insumos directamente del inventario mediante receta.</p>
+            <p class="text-lg font-bold text-purple-950">$85,000 COP</p>
+          </div>
+          <button onclick="seleccionarProducto('prod-2')" class="w-full bg-purple-100 hover:bg-purple-200 text-purple-900 font-bold py-2.5 rounded-xl transition text-sm">
+            Ordenar Este Producto 🛒
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. VISTA PEDIDO Y PASARELA -->
+    <section id="modulo-pedido" class="hidden space-y-6">
+      <header class="border-b border-pink-200/60 pb-3">
+        <h2 class="text-3xl font-serif-custom font-bold text-pink-950">Formulario de Pedido</h2>
+        <p class="text-sm text-pink-600/80 mt-1">Configura tu solicitud y procesa la transacción de prueba.</p>
+      </header>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-start">
+        <form id="form-pedido" onsubmit="crearPedido(event)" class="bg-white p-7 rounded-3xl border border-pink-100/80 soft-shadow space-y-5">
+          <div>
+            <label class="block text-xs font-bold uppercase tracking-wider text-gray-400 mb-1.5">Tipo de Servicio</label>
+            <select id="tipo_pedido" onchange="toggleEventoFields()" class="w-full bg-pink-50/30 border border-pink-200/80 rounded-2xl p-3.5 text-sm text-gray-700 outline-none">
+              <option value="individual"> Pedido Individual</option>
+              <option value="evento"> Evento Especial / Mesa Dulce</option>
+            </select>
+          </div>
+
+          <div id="campos-evento" class="hidden grid grid-cols-2 gap-4 bg-purple-50/50 p-4 rounded-2xl border border-purple-100">
+            <div>
+              <label class="block text-xs font-bold text-purple-800 mb-1">Invitados</label>
+              <input type="number" id="num_invitados" placeholder="ej. 50" class="w-full border border-purple-200 rounded-xl p-2.5 text-sm bg-white">
+            </div>
+            <div>
+              <label class="block text-xs font-bold text-purple-800 mb-1">Fecha Evento</label>
+              <input type="date" id="fecha_evento" class="w-full border border-purple-200 rounded-xl p-2.5 text-sm bg-white">
+            </div>
+          </div>
+
+          <div>
+            <label class="block text-xs font-bold uppercase tracking-wider text-gray-400 mb-1.5">Producto</label>
+            <select id="producto_id" class="w-full bg-pink-50/30 border border-pink-200/80 rounded-2xl p-3.5 text-sm text-gray-700 outline-none">
+              <option value="prod-1">Postre Cucharable de Chocolate ($12,000)</option>
+              <option value="prod-2">Torta Personalizada 15 Porciones ($85,000)</option>
+            </select>
+          </div>
+
+          <div>
+            <label class="block text-xs font-bold uppercase tracking-wider text-gray-400 mb-1.5">Cantidad</label>
+            <input type="number" id="cantidad" value="1" min="1" class="w-full bg-pink-50/30 border border-pink-200/80 rounded-2xl p-3.5 text-sm text-gray-700 outline-none">
+          </div>
+
+          <button type="submit" class="w-full bg-pink-200 hover:bg-pink-300 text-pink-950 font-bold py-4 rounded-2xl transition shadow-sm border border-pink-300/50">
+            Confirmar e Ir a Pago 
+          </button>
+        </form>
+
+        <!-- Modal Pasarela -->
+        <div id="modal-pago" class="hidden bg-emerald-50/80 border border-emerald-200/80 p-7 rounded-3xl soft-shadow space-y-5">
+          <div class="flex items-center gap-3 border-b border-emerald-200/60 pb-3">
+            <span class="text-2xl p-2 bg-emerald-100 rounded-2xl">💳</span>
+            <div>
+              <h3 class="font-serif-custom font-bold text-xl text-emerald-950">Pasarela de Pago (Webhook)</h3>
+              <p class="text-xs text-emerald-700">Simulación Sandbox</p>
+            </div>
+          </div>
+          <div class="bg-white/90 p-4 rounded-2xl border border-emerald-100 text-xs space-y-2">
+            <div class="flex justify-between">
+              <span class="text-gray-400">Referencia:</span>
+              <span id="pago-pedido-id" class="font-mono font-bold text-emerald-900"></span>
+            </div>
+            <div class="flex justify-between items-center pt-1">
+              <span class="text-gray-400">Monto:</span>
+              <span class="text-base font-bold text-emerald-950">$<span id="pago-monto"></span></span>
+            </div>
+          </div>
+          <button onclick="simularPago()" class="w-full bg-emerald-200 hover:bg-emerald-300 text-emerald-950 font-bold py-3.5 rounded-2xl transition shadow-sm border border-emerald-300/50">
+            Simular Pago Aprobado 
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. VISTA PERFIL DE USUARIO -->
+    <section id="modulo-usuario" class="hidden space-y-6">
+      <header class="border-b border-pink-200/60 pb-3">
+        <h2 class="text-3xl font-serif-custom font-bold text-pink-950">Perfil de Usuario</h2>
+        <p class="text-sm text-pink-600/80 mt-1">Información de la cuenta y pedidos activos.</p>
+      </header>
+
+      <div class="bg-white p-6 rounded-3xl border border-pink-100/80 soft-shadow space-y-4">
+        <div class="flex items-center gap-4 border-b border-pink-50 pb-4">
+          <div class="w-14 h-14 bg-pink-100 text-pink-800 rounded-full flex items-center justify-center font-bold text-xl">
+            VS
+          </div>
+          <div>
+            <h3 class="font-bold text-gray-800">Cliente Activo (Beta)</h3>
+            <p class="text-xs text-gray-400">ID Usuario: usr-1</p>
+          </div>
+        </div>
+        <p class="text-xs text-gray-500">Tus pedidos registrados se sincronizan automáticamente con la base de datos SQLite del sistema.</p>
+      </div>
+    </section>
+
+    <!-- 5. VISTA INVENTARIO -->
+    <!-- 5. VISTA INVENTARIO -->
+<section id="modulo-inventario" class="hidden space-y-6">
+  <header class="border-b border-emerald-200/60 pb-3 flex justify-between items-center">
+    <div>
+      <h2 class="text-3xl font-serif-custom font-bold text-emerald-950">Control de Inventario & Insumos</h2>
+      <p class="text-sm text-emerald-700/80 mt-1">El stock actual se descuenta de forma automática según la receta al aprobar el pago.</p>
+    </div>
+    <button onclick="cargarInventario()" class="bg-emerald-100 hover:bg-emerald-200 text-emerald-900 text-xs px-4 py-2.5 rounded-xl font-bold">🔄 Actualizar Stock</button>
+  </header>
+
+  <div class="bg-white rounded-3xl border border-emerald-100/80 soft-shadow overflow-hidden">
+    <table class="w-full text-left border-collapse">
+      <thead>
+        <tr class="bg-emerald-50/50 border-b border-emerald-100 text-xs font-bold uppercase text-emerald-900">
+          <th class="py-4 px-6">Ingrediente</th>
+          <th class="py-4 px-6">Stock Inicial</th>
+          <th class="py-4 px-6">Consumido</th>
+          <th class="py-4 px-6">Stock Disponible</th>
+          <th class="py-4 px-6">Acción</th>
+        </tr>
+      </thead>
+      <tbody id="tabla-ingredientes" class="divide-y divide-emerald-50 text-sm"></tbody>
+    </table>
+  </div>
+</section>
+
+    <!-- 6. VISTA CONTABILIDAD -->
+    <section id="modulo-contabilidad" class="hidden space-y-6">
+      <header class="border-b border-purple-200/60 pb-3 flex justify-between items-center">
+        <div>
+          <h2 class="text-3xl font-serif-custom font-bold text-purple-950">Movimientos Contables</h2>
+          <p class="text-sm text-purple-700/80 mt-1">Asientos contables generados tras las confirmaciones del webhook.</p>
+        </div>
+        <button onclick="cargarContabilidad()" class="bg-purple-100 hover:bg-purple-200 text-purple-900 text-xs px-4 py-2.5 rounded-xl font-bold">🔄 Actualizar</button>
+      </header>
+
+      <div class="bg-white rounded-3xl border border-purple-100/80 soft-shadow overflow-hidden">
+        <table class="w-full text-left border-collapse">
+          <thead>
+            <tr class="bg-purple-50/50 border-b border-purple-100 text-xs font-bold uppercase text-purple-900">
+              <th class="py-4 px-6">Referencia</th>
+              <th class="py-4 px-6">Tipo</th>
+              <th class="py-4 px-6">Monto Total</th>
+            </tr>
+          </thead>
+          <tbody id="tabla-movimientos" class="divide-y divide-purple-50 text-sm"></tbody>
+        </table>
+      </div>
+    </section>
+
+  </main>
+
+  <script>
+    let pedidoActualId = null;
+    let montoActual = 0;
+
+    function cambiarVista(modulo) {
+      const modulos = ['inicio', 'menu', 'pedido', 'usuario', 'inventario', 'contabilidad'];
+      modulos.forEach(m => {
+        document.getElementById(`modulo-${m}`).classList.add('hidden');
+        const btn = document.getElementById(`tab-${m}`);
+        if(btn) btn.className = "px-3 py-1.5 rounded-xl text-xs sm:text-sm font-semibold transition-all duration-200 text-gray-500 hover:text-pink-800";
+      });
+
+      document.getElementById(`modulo-${modulo}`).classList.remove('hidden');
+      const activeBtn = document.getElementById(`tab-${modulo}`);
+      if(activeBtn) activeBtn.className = "px-3 py-1.5 rounded-xl text-xs sm:text-sm font-semibold transition-all duration-200 bg-white text-pink-950 shadow-sm border border-pink-100";
+
+      if (modulo === 'inventario') cargarInventario();
+      if (modulo === 'contabilidad') cargarContabilidad();
+    }
+
+    function seleccionarProducto(idProd) {
+      cambiarVista('pedido');
+      document.getElementById('producto_id').value = idProd;
+    }
+
+    function toggleEventoFields() {
+      const tipo = document.getElementById('tipo_pedido').value;
+      document.getElementById('campos-evento').classList.toggle('hidden', tipo !== 'evento');
+    }
+
+    async function crearPedido(e) {
+      e.preventDefault();
+      try {
+        const tipo = document.getElementById('tipo_pedido').value;
+        const prodSelect = document.getElementById('producto_id').value;
+        const cantidad = parseInt(document.getElementById('cantidad').value) || 1;
+        const precioUnitario = prodSelect === 'prod-1' ? 12000 : 85000;
+
+        const body = {
+          usuario_id: "usr-1",
+          tipo: tipo,
+          num_invitados: tipo === 'evento' ? (parseInt(document.getElementById('num_invitados').value) || 0) : 0,
+          fecha_evento: tipo === 'evento' ? document.getElementById('fecha_evento').value : null,
+          productos: [{ producto_id: prodSelect, cantidad: cantidad, precio_unitario: precioUnitario }]
+        };
+
+        const res = await fetch('/api/v1/pedidos', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(body)
+        });
+
+        if (!res.ok) throw new Error('Error al registrar pedido');
+        const data = await res.json();
+
+        pedidoActualId = data.pedido_id;
+        montoActual = data.total;
+
+        document.getElementById('pago-pedido-id').innerText = pedidoActualId;
+        document.getElementById('pago-monto').innerText = montoActual.toLocaleString();
+        document.getElementById('modal-pago').classList.remove('hidden');
+      } catch (err) {
+        alert('Ocurrió un error al procesar el pedido.');
+      }
+    }
+
+    async function simularPago() {
+      try {
+        const res = await fetch('/api/v1/payments/webhook', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            pedido_id: pedidoActualId,
+            estado_transaccion: 'APPROVED',
+            referencia_pasarela: 'WOMPI-BETA-' + Date.now(),
+            monto: montoActual
+          })
+        });
+
+        const data = await res.json();
+        alert(data.mensaje);
+        document.getElementById('modal-pago').classList.add('hidden');
+        document.getElementById('form-pedido').reset();
+      } catch (err) {
+        alert('Error al simular el pago.');
+      }
+    }
+
+   async function cargarInventario() {
+  try {
+    const res = await fetch('/api/v1/ingredientes');
+    const data = await res.json();
+    const tbody = document.getElementById('tabla-ingredientes');
+    
+    tbody.innerHTML = data.ingredientes.map(i => {
+      const consumido = i.stock_inicial - i.stock_actual;
+      const porcentajeRestante = ((i.stock_actual / i.stock_inicial) * 100).toFixed(0);
+      
+      return `
+        <tr class="hover:bg-emerald-50/30 transition">
+          <td class="py-4 px-6 font-semibold text-gray-800">
+            ${i.nombre}
+            <span class="block text-xs font-normal text-gray-400">Unidad: ${i.unidad_medida}</span>
+          </td>
+          <td class="py-4 px-6 font-semibold text-gray-600">${i.stock_inicial} ${i.unidad_medida}</td>
+          <td class="py-4 px-6 font-semibold text-amber-600">-${consumido} ${i.unidad_medida}</td>
+          <td class="py-4 px-6">
+            <span class="font-bold ${i.stock_actual < (i.stock_inicial * 0.2) ? 'text-rose-600' : 'text-emerald-700'}">
+              ${i.stock_actual} ${i.unidad_medida}
+            </span>
+            <span class="text-xs block text-gray-400">(${porcentajeRestante}% restante)</span>
+          </td>
+          <td class="py-4 px-6">
+            <button onclick="modificarStock('${i.id}', '${i.nombre}', ${i.stock_inicial}, ${i.stock_actual})" class="bg-emerald-50 hover:bg-emerald-100 text-emerald-800 text-xs px-3 py-1.5 rounded-lg border border-emerald-200 font-medium">
+              ⚙️ Ajustar Stock
+            </button>
+          </td>
+        </tr>
+      `;
+    }).join('');
+  } catch (err) { console.error(err); }
+}
+
+async function modificarStock(id, nombre, stockInicialActual, stockDisponibleActual) {
+  const nuevoInicial = prompt(`Ajustar Stock Inicial para ${nombre}:`, stockInicialActual);
+  if (nuevoInicial === null) return;
+
+  const nuevoDisponible = prompt(`Ajustar Stock Actual (Disponible) para ${nombre}:`, stockDisponibleActual);
+  if (nuevoDisponible === null) return;
+
+  try {
+    const res = await fetch(`/api/v1/ingredientes/${id}`, {
+      method: 'PUT',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        stock_inicial: parseFloat(nuevoInicial),
+        stock_actual: parseFloat(nuevoDisponible)
+      })
+    });
+    const data = await res.json();
+    alert(data.mensaje);
+    cargarInventario();
+  } catch (err) {
+    alert("Error al actualizar el stock.");
+  }
+}
+
+    async function cargarContabilidad() {
+      try {
+        const res = await fetch('/api/v1/admin/resumen');
+        const data = await res.json();
+        const tbody = document.getElementById('tabla-movimientos');
+        tbody.innerHTML = data.movimientos_contables.map(m => `
+          <tr class="hover:bg-purple-50/30 transition">
+            <td class="py-4 px-6 font-mono text-xs text-purple-900 font-semibold">${m.referencia}</td>
+            <td class="py-4 px-6">
+              <span class="bg-purple-100 text-purple-800 text-xs px-2.5 py-1 rounded-full font-bold border border-purple-200">
+                ${m.tipo}
+              </span>
+            </td>
+            <td class="py-4 px-6 font-bold text-purple-950">$${m.monto.toLocaleString()}</td>
+          </tr>
+        `).join('');
+      } catch (err) { console.error(err); }
+    }
+  </script>
+</body>
+</html>
