@@ -17,9 +17,15 @@ Tecnologías Utilizadas
 Estructura del Proyecto
 
 Proyecto/
+
     public/
+    
          index.html          # Interfaz de usuario SPA (HTML + JS + Tailwind)
+         
     .env                    # Variables de entorno (Puerto)
+    
     app.js                  # Servidor Express, API REST y conexión SQLite
+    
     package.json            # Dependencias del proyecto
+    
     pasteleria.db           # Base de datos SQLite
