@@ -15,6 +15,7 @@ Tecnologías Utilizadas
 - Herramientas & Middleware: CORS, Dotenv, Fetch API.
 
 Estructura del Proyecto
+
 Proyecto/
 ├── public/
 │   └── index.html          # Interfaz de usuario SPA (HTML + JS + Tailwind)
